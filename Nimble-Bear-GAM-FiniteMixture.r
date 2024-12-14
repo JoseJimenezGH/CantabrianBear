@@ -225,8 +225,8 @@ code <- nimbleCode({
     negLogDen[i] <- -log(probs[trunc(S[i,1]), trunc(S[i,2])]) # zeros trick
     zeros[i] ~ dpois(negLogDen[i])
     
-	# Detection. Scats in transects
-	pS[i,1:nTraps1] <- GetDetectionRate(s = S[i,1:2], 
+    # Detection. Scats in transects
+    pS[i,1:nTraps1] <- GetDetectionRate(s = S[i,1:2], 
                                         X = trapMat1[1:nTraps1,1:2], 
                                         J=nTraps1,
                                         alpha1=alpha1[g[i]],
@@ -240,13 +240,13 @@ code <- nimbleCode({
                                         p0=p0H[SEX2[i],1:nTraps1], 
                                         z=z[i])
     # Detection. Hair traps - Castilla y León
-	DsqHT1[i,1:nTraps2] <- (S[i,1]-trapMat2[1:nTraps2,1])^2 + (S[i,2]-trapMat2[1:nTraps2,2])^2
+    DsqHT1[i,1:nTraps2] <- (S[i,1]-trapMat2[1:nTraps2,1])^2 + (S[i,2]-trapMat2[1:nTraps2,2])^2
     pHT1[i,1:nTraps2] <- p0HT1[SEX2[i]] * exp(-alpha1[g[i]]*DsqHT1[i,1:nTraps2]) * z[i]
-	# Detection. Hair traps - Cantabria	
+    # Detection. Hair traps - Cantabria	
     DsqHT2[i,1:nTraps3] <- (S[i,1]-trapMat3[1:nTraps3,1])^2 + (S[i,2]-trapMat3[1:nTraps3,2])^2	
     pHT2[i,1:nTraps3] <- p0HT2 * exp(-alpha1[g[i]]*DsqHT2[i,1:nTraps3]) * z[i]
     
-	# Loop through the centroid locations
+    # Loop through the centroid locations
     # Scat samples
     yS[i,1:nTraps1] ~ dPoissonVector(pS[i,1:nTraps1])
     # Hair samples
@@ -401,6 +401,7 @@ str(data  <-   list(yS = YaugS,
                     trapMat1=mymask$trapMat[1:668,],
                     trapMat2=mymask$trapMat[669:1374,],
                     trapMat3=mymask$trapMat[1375:1419,]))
+
 str(constants<-list(M = M, 
                     nTraps1 = nTraps1,
                     nTraps2 = nTraps2,
@@ -481,9 +482,7 @@ mcmc$removeSamplers('z')
 for(node in Rmodel$expandNodeNames('z')) mcmc$addSampler(target = node, type = 'slice')
  
 MCMC <- buildMCMC(mcmc)
-
 CompMCMC <- compileNimble(MCMC, project = Rmodel)
-
 
 ## Execute MCMC algorithm and extract samples
 ## Run model
@@ -499,10 +498,8 @@ end.time-start.time2 # post-compilation run time
 
 outNim$WAIC
 
-
 summary(mcmcOutput(outNim$samples))
-diagPlot(mcmcOutput(outNim$samples))
-
+# diagPlot(mcmcOutput(outNim$samples))
 
 # MCMC values from mcmc.list object ‘outNim$samples’ 
 # The object has 34 nodes with 50000 draws for each of 3 chains.
