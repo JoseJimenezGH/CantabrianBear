@@ -24,7 +24,7 @@ library(MCMCvis)
 library(tidyverse)
 library(ggplot2)
 
-setwd('C:/Users/Usuario/OneDrive/11 Proyecto Oso/05 R code/DEF/DEF')
+setwd('C:/...')
 
 
 # SETTING DATA
