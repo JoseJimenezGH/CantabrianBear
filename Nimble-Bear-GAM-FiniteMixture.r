@@ -10,19 +10,13 @@
 
 # Load packages
 library(nimble)
-library(basicMCMCplots)
 library(coda)
-library(lattice)
 library(raster)
 library(secr)
 library(jagsUI)
 library(makeJAGSmask)
 library(terra)
 library(scrbook)
-library(mcmcOutput)
-library(MCMCvis)
-library(tidyverse)
-library(ggplot2)
 
 setwd('C:/...')
 
