@@ -21,8 +21,8 @@ library(scrbook)
 setwd('C:/...')
 
 
-# SETTING DATA
-#==================
+# SETTING DATA FOR SCR-INTEGRATION
+#==================================
 # We construct the capture matrices by individual-trap. To do this, for each method we use dummy 
 # captures for all uncaptured individuals, which we then remove in a next step. What we have done 
 # is to assign the non-captured individuals to a trap with no real captures (e.g. trap '1' in the 
