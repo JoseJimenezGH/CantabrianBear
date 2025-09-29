@@ -44,7 +44,7 @@
 #   estimates for elusive carnivores in fragmented landscapes.
 # ============================================================
 
-setwd('C:/Users/Jose_/OneDrive/11 Proyecto Oso/05 R code')
+setwd('C:/...')
 
 library(nimble)
 nimble:::setNimbleOption('allowDynamicIndexing', TRUE)
@@ -64,7 +64,6 @@ library(ggplot2)
 
 source('SCR_bear_functions.R')
 
-
 # Scat sampling
 bearS.ch <- read.capthist("./data/captScat.txt", "./data/traps.txt", detector='count', noccasions=1)
 bearS<-aperm(bearS.ch,c(1,3,2))
@@ -74,7 +73,6 @@ yS[,1]<-0
 sum(yS)
 dim(yS[apply(yS,1,sum)>0,])
 
-
 # Hair sampling
 bearH.ch <- read.capthist("./data/captHair.txt", "./data/traps.txt", detector='count', noccasions=1)
 bearH<-aperm(bearH.ch,c(1,3,2))
@@ -83,7 +81,6 @@ yH<-apply(bearH,c(1,2),sum)
 yH[,1]<-0
 sum(yH)
 dim(yH[apply(yH,1,sum)>0,])
-
 
 # Hair-trap sampling Castilla y León
 bearHTCyL.ch <- read.capthist("./data/captHairTrapsCyL.txt", "./data/trapPeloCyL.txt", detector='count', noccasions=4)
@@ -112,7 +109,6 @@ Eff<-EF/10000
 # Region
 CA<-read.table("./data/CCAA.txt", header=TRUE)
 CA<-as.numeric(as.factor(CA[,2]))
-
 
 bearPoly<-vect('./GIS/bearPoly.shp')
 elev<-rast('./GIS/elevation')
@@ -173,9 +169,7 @@ Xc<-mymask$X
 Xc<-rast(Xc)
 plane_coord<-as.data.frame(Xc, xy=TRUE)
 
-
 nsite<-80*44
-
 # The temporary GAM we will take apart.
 tmp_jags <- mgcv::jagam(
   response ~ s(x,k=10)+s(y,k=5),
@@ -213,19 +207,15 @@ par(mfrow = c(5, 5),mar=c(3.5,3.5,3.5,3.5))
 plot(JJ, ask=TRUE)
 dev.off()
 
-
 mymask <- convertRaster(JJ, as.data.frame(traps))
 str(mymask)
 dev.off()
-
-
 
 ## define the model
 code <- nimbleCode({
 
   psi.sex ~ dunif(0,1)
   psi ~ dunif(0, 1)
-
   beta[1] ~ dnorm(0,0.75)   
   K1[1:9,1:9] <- S1[1:9,1:9] * lambdaS[1]  + S1[1:9,10:18] * lambdaS[2]   
   beta[ 2:10] ~ dmnorm(zeroS[ 2:10],K1[1:9,1:9])
@@ -268,15 +258,13 @@ code <- nimbleCode({
   one[1] ~ dconstraint(sigma_mix[1,1] < sigma_mix[1,2])  # females
   one[2] ~ dconstraint(sigma_mix[2,1] < sigma_mix[2,2])  # males
 
-  
   for(j in 1:nTraps1){
     log(p0S[1,j]) <-  alpha1.pS*log.Eff[j] + alpha2.pS[CA[j]] + lp0S.sex
     log(p0S[2,j]) <-  alpha1.pS*log.Eff[j] + alpha2.pS[CA[j]] - lp0S.sex
     log(p0H[1,j]) <-  alpha1.pH*log.Eff[j] + alpha2.pH[CA[j]] + lp0H.sex
     log(p0H[2,j]) <-  alpha1.pH*log.Eff[j] + alpha2.pH[CA[j]] - lp0H.sex
   }
-   
-  
+
   # Spatial covariates for density
   for(i in 1:(upperLimit[1]-1)) {
     for(j in 1:(upperLimit[2]-1)) {
@@ -636,3 +624,4 @@ diagPlot(mc)
 # sigmaR_mix[2, 1] 4125.206 212.228 4122.050 3715.201 4526.565 6.225
 # sigmaR_mix[1, 2] 5111.677 341.034 5087.571 4460.073 5769.446 4.167
 # sigmaR_mix[2, 2] 8530.219 527.623 8481.947 7570.037 9584.095 5.985
+
