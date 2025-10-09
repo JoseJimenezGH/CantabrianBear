@@ -48,7 +48,6 @@ setwd('C:/...')
 
 library(nimble)
 nimble:::setNimbleOption('allowDynamicIndexing', TRUE)
-library(basicMCMCplots)
 library(coda)
 library(lattice)
 library(raster)
@@ -58,7 +57,6 @@ library(makeJAGSmask)
 library(terra)
 library(scrbook)
 library(mcmcOutput)
-library(MCMCvis)
 library(tidyverse)
 library(ggplot2)
 
@@ -627,5 +625,6 @@ diagPlot(mc)
 # sigmaR_mix[2, 1] 4125.206 212.228 4122.050 3715.201 4526.565 6.225
 # sigmaR_mix[1, 2] 5111.677 341.034 5087.571 4460.073 5769.446 4.167
 # sigmaR_mix[2, 2] 8530.219 527.623 8481.947 7570.037 9584.095 5.985
+
 
 
