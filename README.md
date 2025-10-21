@@ -2,7 +2,7 @@
 Cantabrian bear population size estimate
 
 *Bear-SCR-GAM.R*
-This R script builds and runs a Spatial Capture-Recapture (SCR) model using the NIMBLE framework to estimate brown bear density in the Cantabrian Mountains. It processes detection data from scat, hair, and hair-trap samples, constructs spatial covariates from raster layers (elevation, forest, GAM smooths), and defines a hierarchical Bayesian model with sex- and group-specific detection parameters. 
+This R script builds and runs a Spatial Capture-Recapture (SCR) model using the NIMBLE framework to estimate brown bear density in the Cantabrian Mountains (N Spain). It processes detection data from scat, hair, and hair-trap samples, constructs spatial covariates from raster layers (elevation, forest, GAM smooths), and defines a hierarchical Bayesian model with sex- and group-specific detection parameters. 
 
 *DensityPlot.R*
 This R script visualizes spatial density estimates from a Spatial Capture-Recapture (SCR) model.
