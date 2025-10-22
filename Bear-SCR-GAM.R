@@ -26,7 +26,6 @@
 # - Posterior estimates of density (D), abundance (N), sex ratio (SR), etc.
 # - MCMC diagnostics and summaries
 #
-# Author: Jose Jimenez Garcia-Herrera
 # Date: October 2025
 
 setwd('C:/...')
@@ -659,6 +658,7 @@ diagPlot(mc)
 # sigmaR_mix[2, 1] 4123.643 213.159 4123.569 3706.251 4543.057 1.000 1.253
 # sigmaR_mix[1, 2] 5147.179 346.828 5129.434 4487.204 5838.045 1.000 0.739
 # sigmaR_mix[2, 2] 8528.733 521.119 8478.803 7567.296 9589.491 1.000 1.150
+
 
 
 
