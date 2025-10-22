@@ -15,7 +15,6 @@
 # - Files: "SCR_functions.R", "data/mymask.RData", shapefiles in "GIS" folder
 # - R packages: terra, ggplot2, tidyterra, nimble, scrbook, etc.
 #
-# Author: Jose Jimenez Garcia-Herrera
 # Date: October 2025
 
 # Load required libraries for spatial analysis, visualization, and SCR modelling
@@ -190,4 +189,5 @@ ggplot() +
   theme(panel.background = element_rect(fill = "transparent", colour = "#A4A4A4"),
         panel.border = element_rect(fill = NA),
         panel.grid = element_blank(),
+
         plot.margin = margin(0.75, 0.45, 0.45, 0.45, "cm"))
