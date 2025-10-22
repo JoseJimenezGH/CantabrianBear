@@ -16,7 +16,6 @@
 # - File: "outNim.RData", "BearData.RData"
 # - R packages: coda, vegan, mcmcOutput
 #
-# Author: Jose Jimenez Garcia-Herrera
 # Date: October 2025
 
 library(coda)
@@ -112,3 +111,4 @@ plot(varpart_result,
 
 # Show summary of results
 summary(varpart_result)
+
