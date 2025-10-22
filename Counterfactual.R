@@ -17,7 +17,6 @@
 # - File: "outNim.RData", "BearData.RData"
 # - R packages: mcmcOutput, ggplot2
 #
-# Author: Jose Jimenez Garcia-Herrera
 # Date: October 2025
 
 library(mcmcOutput)
@@ -127,4 +126,5 @@ ggplot(df, aes(x = Component, y = Reduction, fill = Component)) +
     x = "Component"
   ) +
   theme_minimal() +
+
   theme(legend.position = "none")
