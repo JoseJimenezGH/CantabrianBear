@@ -15,7 +15,6 @@
 # - Files: "BearData.RData", "varpartVegan.R"
 # - R packages: rdacca.hp, GFA, dplyr, ggplot2
 #
-# Author: Jose Jimenez Garcia-Herrera
 # Date: October 2025
 
 # Load required libraries
@@ -100,3 +99,4 @@ ggplot(tabla_bloques, aes(x = Block, y = Importance, fill = Block)) +
   theme_minimal(base_size = 14) +
   theme(legend.position = "none",
         plot.title = element_text(hjust = 0.5, face = "bold"))
+
