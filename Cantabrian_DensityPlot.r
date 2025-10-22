@@ -191,3 +191,4 @@ ggplot() +
         panel.grid = element_blank(),
 
         plot.margin = margin(0.75, 0.45, 0.45, 0.45, "cm"))
+
